@@ -1,9 +1,14 @@
-var http = require('http');
-var map = require('through2-map');
-var port = Number(process.argv[2]);
+/**
+ * Program that accepts HTTP POST requests and replies
+ * with incoming body characters to upper-case.
+ * 
+ */
+
+const http = require('http');
+const map = require('through2-map');
+const port = Number(process.argv[2]);
 
 var server = http.createServer(function (req, res){
-    
     if (req.method !== 'POST') {
         return res.end('Error: POST method expected');
     }
@@ -15,5 +20,3 @@ var server = http.createServer(function (req, res){
 });
 
 server.listen(port);
-
-/* Review - rememeber to add post method check, i.e to ensure method is post */
